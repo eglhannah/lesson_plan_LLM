@@ -134,6 +134,8 @@ candidate_responses = [
     "Play a loud song a Bluetooth speaker right outside their door.",
 ]
 
+
+
 for response in candidate_responses:
     print(response)
     scores = {
