@@ -33,11 +33,24 @@ it_model = AutoModelForCausalLM.from_pretrained(
 # Read CSV containing prompts and metadata
 df = pd.read_csv("Hackathon_Prompts.csv", nrows=2)
 prompts = df.prompt.to_list()
+
+
+def assign_grade_level(grade_level, prompts):
+    updated_prompts=[]
+    grade_level = str(grade_level)+" grade"
+    for prompt in prompts:
+        updated_text=text.str.replace("{grade_level}", grade_level)
+        updated_prompts.append(updated_text)
+    return updated_prompts
+
+updated_prompts = assign_grade_level(grade_level=9, prompts=prompts)
+for prompt in updated_prompts:
+    print(prompt)
     
 # 4. Base Model (Non-Instruction-Tuned) Inference
 # The base model does plain text completion — no chat template.
 # Inputs to model
-inputs = base_processor(text=prompts, return_tensors="pt").to(base_model.device)
+inputs = base_processor(text=updated_prompts, return_tensors="pt").to(base_model.device)
 input_len = inputs["input_ids"].shape[-1]
 
 # Outputs, limited tokens
@@ -51,7 +64,7 @@ base_response = base_processor.decode(outputs[0][input_len:], skip_special_token
 # The `-it` model expects chat-formatted messages via `apply_chat_template`.
 messages = [
     {"role": "system", "content": "You are a helpful assistant."}, 
-    {"role": "user", "content": prompt},
+    {"role": "user", "content": updated_prompts},
 ]
 # TODO: Update content for jailbreaking purposes? Can we do this?
 

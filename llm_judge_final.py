@@ -12,7 +12,8 @@
 # 1. Import Libraries
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
-import pandas as csv
+import pandas as pd
+import csv
 
 # Import CSV of prompts and response
 outputs = pd.read_csv("outputs.csv")
