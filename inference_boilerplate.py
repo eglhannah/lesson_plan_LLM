@@ -6,11 +6,15 @@
 # 1. Import Libraries
 import torch
 from transformers import AutoProcessor, AutoModelForCausalLM
+# from hugginface_hub import hf_hub_download
 
 # 2. Load Models and Processors
 # Loads both the base (pre-trained) and instruction-tuned variants.
 BASE_MODEL_ID = "google/gemma-4-E2B"
 IT_MODEL_ID = "google/gemma-4-E2B-it"
+
+
+
 
 base_processor = AutoProcessor.from_pretrained(BASE_MODEL_ID)
 base_model = AutoModelForCausalLM.from_pretrained(
