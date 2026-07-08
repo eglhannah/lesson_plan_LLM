@@ -54,3 +54,4 @@ Because the subject carries both emotional and political weight, it serves as a 
 ## Acknowledgments
 
 DS5110, Summer 2026, University of Virginia. Thanks to instructors and TAs for guidance on this project.
+Claude for writing of README; all other work is DS5110 or teammates' own.
