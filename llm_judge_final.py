@@ -14,6 +14,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import pandas as pd
 import csv
+from inference_final import assign_grade_level, outputs, response, it_response
 
 # Import CSV of prompts and response
 outputs = pd.read_csv("outputs.csv")
