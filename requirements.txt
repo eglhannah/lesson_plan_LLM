@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:055bc870718d88ec3901ffc6a0bd0d28a86bf960790460a0792e62e3bc61d45c
-size 876
+# Source: ChatGPT
+
+# packaging @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_packaging_1777103621/work
+# Requires Python 3.11 (see environment.yml)
+
+# Core: Gemma 4 (E2B / E2B-it) requires a recent transformers build
+# (Gemma 4 support landed in transformers only recently â€” if you hit a
+# "model type gemma4 not recognized" error, install from source instead:
+#   pip install git+https://github.com/huggingface/transformers.git
+transformers>=4.56.0
+torch>=2.4.0
+accelerate>=0.33.0
+torchvision
+
+# Hugging Face Hub auth + model/dataset download
+huggingface_hub>=0.24.0
+
+# Image support (Gemma 4 handles image input)
+pillow>=10.0.0
+
+# Faster inference (optional but recommended if you have a CUDA GPU)
+# bitsandbytes>=0.43.0   # 4-bit/8-bit quantization for lower VRAM use
+# flash-attn>=2.6.0      # uncomment only if your GPU/driver supports it
+
+# Common hackathon utilities
+numpy>=1.26.0
+pandas>=2.2.0
+tqdm>=4.66.0
+python-dotenv>=1.0.0    # for keeping your HF token out of source control
