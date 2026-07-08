@@ -47,7 +47,7 @@ Because the subject carries both emotional and political weight, it serves as a 
 - Language centers the experiences of enslaved people rather than presenting the perspective of enslavers alone.
 - Differentiated versions (ESL, mixed-ability) adjust language appropriately while preserving historical accuracy.
 
-## Team
+## Team members
 
 - Caroline Kranefuss, Mason Earp, Joseph Kaminetz, Grace George, Hannah Egl
 
